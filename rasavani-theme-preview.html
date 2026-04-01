@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>రసవాణి | Rasavani - Divine Telugu Magazine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Vesper+Libre:wght@400;700;900&family=Mukta:wght@300;400;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --saffron: #FF6B00;
+    --deep-saffron: #E85D00;
+    --kumkum: #CC1C1C;
+    --gold: #D4A017;
+    --gold-light: #F5C842;
+    --turmeric: #F2A900;
+    --lotus-pink: #E8607A;
+    --night-blue: #0D0D2B;
+    --deep-purple: #1A0A2E;
+    --cream: #FFF8EE;
+    --off-white: #FDF4E3;
+    --text-dark: #1A0A00;
+    --text-muted: #6B4C2A;
+    --border-gold: rgba(212,160,23,0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Mukta', sans-serif;
+    background: var(--off-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── DECORATIVE PATTERN ── */
+  .kolam-bg {
+    background-image:
+      radial-gradient(circle at 25px 25px, rgba(212,160,23,0.08) 2px, transparent 2px),
+      radial-gradient(circle at 75px 75px, rgba(255,107,0,0.06) 2px, transparent 2px);
+    background-size: 100px 100px;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    background: var(--night-blue);
+    color: var(--gold-light);
+    font-size: 12px;
+    font-family: 'Mukta', sans-serif;
+    letter-spacing: 0.08em;
+    padding: 6px 0;
+    text-align: center;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .top-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .top-bar-panchangam {
+    display: flex;
+    gap: 20px;
+    font-size: 11px;
+    opacity: 0.9;
+  }
+
+  .top-bar-panchangam span { color: var(--gold-light); }
+  .top-bar-panchangam .label { color: var(--turmeric); margin-right: 4px; }
+
+  .marquee-wrap { overflow: hidden; flex: 1; margin: 0 24px; }
+  .marquee {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+    white-space: nowrap;
+    color: rgba(255,255,255,0.7);
+    font-size: 11px;
+  }
+  @keyframes marquee { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--deep-purple);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(255,107,0,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 50%, rgba(204,28,28,0.12) 0%, transparent 60%);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-wrap { text-align: center; flex: 1; }
+
+  .logo-telugu {
+    font-family: 'Yatra One', cursive;
+    font-size: 52px;
+    color: var(--gold-light);
+    line-height: 1;
+    text-shadow: 0 0 30px rgba(212,160,23,0.5), 0 2px 4px rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+  }
+
+  .logo-english {
+    font-family: 'Vesper Libre', serif;
+    font-size: 13px;
+    color: var(--turmeric);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-top: 2px;
+    opacity: 0.9;
+  }
+
+  .logo-tagline {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.2em;
+    margin-top: 4px;
+    font-family: 'Mukta', sans-serif;
+  }
+
+  .header-diya {
+    font-size: 28px;
+    animation: flicker 2s ease-in-out infinite alternate;
+  }
+  @keyframes flicker {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(1.05); }
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--kumkum);
+    border-bottom: 2px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .nav-item {
+    padding: 14px 18px;
+    font-family: 'Mukta', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.9);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+
+  .nav-item:hover, .nav-item.active {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold-light);
+    background: rgba(0,0,0,0.15);
+  }
+
+  .nav-item.active { color: var(--gold-light); border-bottom-color: var(--gold-light); }
+
+  /* ── HERO FEATURE ── */
+  .hero {
+    max-width: 1200px;
+    margin: 32px auto 0;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+  }
+
+  .hero-main {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    group: true;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  .hero-main:hover .hero-img { transform: scale(1.03); }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,13,43,0.92) 0%, rgba(13,13,43,0.3) 50%, transparent 100%);
+  }
+
+  .hero-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 32px;
+  }
+
+  .category-pill {
+    display: inline-block;
+    background: var(--saffron);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    font-family: 'Mukta', sans-serif;
+  }
+
+  .hero-title {
+    font-family: 'Vesper Libre', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+
+  .hero-title-te {
+    font-family: 'Yatra One', cursive;
+    font-size: 22px;
+    color: var(--gold-light);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .hero-excerpt {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--gold-light);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'Mukta', sans-serif;
+    cursor: pointer;
+    transition: gap 0.2s;
+  }
+  .read-more:hover { gap: 10px; }
+  .read-more::after { content: '→'; }
+
+  /* ── HERO SIDEBAR ── */
+  .hero-sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+  .side-card {
+    display: flex;
+    gap: 12px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(212,160,23,0.2);
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .side-card:hover {
+    border-color: var(--saffron);
+    transform: translateX(3px);
+    box-shadow: -3px 2px 12px rgba(255,107,0,0.15);
+  }
+
+  .side-img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .side-content { padding: 12px 12px 12px 0; flex: 1; }
+
+  .side-category {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 4px;
+    font-family: 'Mukta', sans-serif;
+  }
+
+  .side-title {
+    font-family: 'Vesper Libre', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.35;
+    margin-bottom: 4px;
+  }
+
+  .side-title-te {
+    font-family: 'Yatra One', cursive;
+    font-size: 12px;
+    color: var(--text-muted);
+    display: block;
+  }
+
+  .side-meta {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    max-width: 1200px;
+    margin: 40px auto 24px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-title {
+    font-family: 'Vesper Libre', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--night-blue);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title-te {
+    font-family: 'Yatra One', cursive;
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, var(--saffron), transparent);
+  }
+
+  .section-more {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    cursor: pointer;
+    font-family: 'Mukta', sans-serif;
+    white-space: nowrap;
+  }
+  .section-more:hover { color: var(--kumkum); }
+
+  /* ── MAIN GRID ── */
+  .main-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 300px;
+    gap: 24px;
+  }
+
+  .article-card {
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .article-card:hover { transform: translateY(-3px); }
+
+  .card-img-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+  }
+  .article-card:hover .card-img { transform: scale(1.05); }
+
+  .card-overlay-pill {
+    position: absolute;
+    bottom: 10px; left: 10px;
+    background: var(--kumkum);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-family: 'Mukta', sans-serif;
+  }
+
+  .card-title {
+    font-family: 'Vesper Libre', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.35;
+    margin-bottom: 5px;
+  }
+
+  .card-title-te {
+    font-family: 'Yatra One', cursive;
+    font-size: 13px;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .card-excerpt {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .card-meta .dot {
+    width: 3px; height: 3px;
+    background: var(--turmeric);
+    border-radius: 50%;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar { display: flex; flex-direction: column; gap: 24px; }
+
+  .sidebar-widget {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+
+  .widget-header {
+    background: var(--night-blue);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .widget-title {
+    font-family: 'Vesper Libre', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .widget-body { padding: 16px; }
+
+  /* Panchangam Widget */
+  .panchangam-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  .panchanga-item {
+    background: var(--off-white);
+    border-radius: 3px;
+    padding: 10px;
+    border-left: 3px solid var(--saffron);
+  }
+
+  .panchanga-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 3px;
+    font-family: 'Mukta', sans-serif;
+  }
+
+  .panchanga-value {
+    font-family: 'Vesper Libre', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--night-blue);
+  }
+
+  .panchanga-te {
+    font-family: 'Yatra One', cursive;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* Rashi Widget */
+  .rashi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+
+  .rashi-item {
+    text-align: center;
+    padding: 8px 4px;
+    background: var(--off-white);
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+  }
+  .rashi-item:hover { border-color: var(--saffron); background: #FFF3E8; }
+
+  .rashi-symbol { font-size: 20px; display: block; margin-bottom: 2px; }
+  .rashi-name { font-size: 9px; color: var(--text-dark); font-weight: 600; font-family: 'Mukta', sans-serif; }
+  .rashi-name-te { font-size: 9px; color: var(--text-muted); font-family: 'Yatra One', cursive; }
+
+  /* Newsletter Widget */
+  .newsletter-widget { background: linear-gradient(135deg, var(--deep-purple), var(--night-blue)); }
+  .newsletter-widget .widget-header { background: rgba(0,0,0,0.3); }
+
+  .newsletter-body { padding: 20px 16px; }
+
+  .newsletter-text {
+    color: rgba(255,255,255,0.8);
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .newsletter-input {
+    width: 100%;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(212,160,23,0.4);
+    border-radius: 3px;
+    padding: 10px 12px;
+    color: white;
+    font-size: 13px;
+    font-family: 'Mukta', sans-serif;
+    margin-bottom: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .newsletter-input::placeholder { color: rgba(255,255,255,0.4); }
+  .newsletter-input:focus { border-color: var(--gold); }
+
+  .newsletter-btn {
+    width: 100%;
+    background: var(--saffron);
+    border: none;
+    color: white;
+    font-family: 'Mukta', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 11px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .newsletter-btn:hover { background: var(--deep-saffron); }
+
+  /* ── FESTIVAL STRIP ── */
+  .festival-strip {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+
+  .festival-banner {
+    background: linear-gradient(135deg, var(--deep-purple) 0%, #2D0A40 50%, var(--night-blue) 100%);
+    border-radius: 6px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .festival-banner::before {
+    content: '🪔✨🌸🔱🌺🕉️🌸✨🪔';
+    position: absolute;
+    top: 10px; left: 0; right: 0;
+    text-align: center;
+    font-size: 20px;
+    opacity: 0.2;
+    letter-spacing: 8px;
+  }
+
+  .festival-text { position: relative; z-index: 1; }
+
+  .festival-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--turmeric);
+    margin-bottom: 6px;
+    font-family: 'Mukta', sans-serif;
+  }
+
+  .festival-name {
+    font-family: 'Yatra One', cursive;
+    font-size: 36px;
+    color: var(--gold-light);
+    line-height: 1.1;
+    text-shadow: 0 0 20px rgba(212,160,23,0.4);
+  }
+
+  .festival-name-en {
+    font-family: 'Vesper Libre', serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+
+  .festival-countdown {
+    display: flex;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .countdown-box {
+    text-align: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(212,160,23,0.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    min-width: 64px;
+  }
+
+  .countdown-num {
+    font-family: 'Vesper Libre', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .countdown-label {
+    font-size: 9px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+    font-family: 'Mukta', sans-serif;
+  }
+
+  /* ── SPIRITUAL NEWS TICKER ── */
+  .news-section {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 0 24px;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .news-card {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--border-gold);
+    transition: all 0.25s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .news-card:hover {
+    border-color: var(--saffron);
+    box-shadow: 0 6px 20px rgba(255,107,0,0.12);
+    transform: translateY(-2px);
+  }
+
+  .news-img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .news-body { padding: 14px; }
+
+  .news-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--lotus-pink);
+    margin-bottom: 6px;
+    font-family: 'Mukta', sans-serif;
+  }
+
+  .news-title {
+    font-family: 'Vesper Libre', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .news-title-te {
+    font-family: 'Yatra One', cursive;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .news-time {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 8px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--night-blue);
+    border-top: 3px solid var(--gold);
+    padding: 48px 0 24px;
+    margin-top: 48px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  .footer-logo-block { grid-column: span 1; }
+
+  .footer-logo {
+    font-family: 'Yatra One', cursive;
+    font-size: 32px;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+    text-shadow: 0 0 20px rgba(212,160,23,0.3);
+  }
+
+  .footer-tagline {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+    font-family: 'Mukta', sans-serif;
+  }
+
+  .footer-section-title {
+    font-family: 'Vesper Libre', serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--turmeric);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(212,160,23,0.2);
+  }
+
+  .footer-links { list-style: none; }
+
+  .footer-links li {
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    cursor: pointer;
+    font-family: 'Mukta', sans-serif;
+    transition: color 0.2s;
+  }
+  .footer-links li:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(212,160,23,0.15);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    font-family: 'Mukta', sans-serif;
+  }
+
+  .footer-om {
+    font-family: 'Yatra One', cursive;
+    font-size: 24px;
+    color: var(--gold);
+    opacity: 0.4;
+  }
+
+  /* ── PLACEHOLDER IMAGES (gradient blocks) ── */
+  .img-placeholder {
+    width: 100%;
+    display: block;
+  }
+  .hero-placeholder {
+    height: 480px;
+    background: linear-gradient(135deg, #2D0A40 0%, #8B1A1A 40%, #FF6B00 80%, #D4A017 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+  }
+  .side-placeholder {
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+  }
+  .card-placeholder {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+  }
+  .news-placeholder {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+  }
+
+  .p1 { background: linear-gradient(135deg, #8B1A1A, #FF6B00); }
+  .p2 { background: linear-gradient(135deg, #1A2040, #8B008B); }
+  .p3 { background: linear-gradient(135deg, #0D4A1A, #2E8B57); }
+  .p4 { background: linear-gradient(135deg, #4A0D1A, #CC1C1C); }
+  .p5 { background: linear-gradient(135deg, #2D1A00, #D4A017); }
+  .p6 { background: linear-gradient(135deg, #001A2D, #0066CC); }
+  .p7 { background: linear-gradient(135deg, #2D0A40, #9B59B6); }
+  .p8 { background: linear-gradient(135deg, #1A1A00, #808000); }
+
+  /* ── LANG TOGGLE ── */
+  .lang-toggle {
+    display: flex;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 3px;
+    gap: 2px;
+  }
+  .lang-btn {
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Mukta', sans-serif;
+    transition: all 0.2s;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.05em;
+  }
+  .lang-btn.active {
+    background: var(--gold);
+    color: var(--night-blue);
+  }
+
+</style>
+</head>
+<body class="kolam-bg">
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="top-bar-panchangam">
+      <span><span class="label">తిథి</span>తృతీయ</span>
+      <span><span class="label">నక్షత్రం</span>రోహిణి</span>
+      <span><span class="label">వారం</span>మంగళవారం</span>
+    </div>
+    <div class="marquee-wrap">
+      <span class="marquee">🔱 శ్రీ రామ నవమి వేడుకలు ఏప్రిల్ 6న • తిరుపతి బ్రహ్మోత్సవాలు మొదలయ్యాయి • సూర్యగ్రహణం ఈ నెల 8న • 🕉️ రోజువారీ పంచాంగం అందుబాటులో ఉంది</span>
+    </div>
+    <div class="lang-toggle">
+      <div class="lang-btn active">తె</div>
+      <div class="lang-btn">EN</div>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="header-diya">🪔</div>
+    <div class="logo-wrap">
+      <div class="logo-telugu">రసవాణి</div>
+      <div class="logo-english">R A S A V A N I</div>
+      <div class="logo-tagline">Telugu Divine Magazine • దివ్య తెలుగు పత్రిక</div>
+    </div>
+    <div class="header-diya">🪔</div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-item active">🏠 Home</div>
+    <div class="nav-item">🕉️ Devotional</div>
+    <div class="nav-item">⭐ Astrology</div>
+    <div class="nav-item">📖 Puranas</div>
+    <div class="nav-item">🛕 Temples</div>
+    <div class="nav-item">🎉 Festivals</div>
+    <div class="nav-item">📰 News</div>
+    <div class="nav-item">🔯 Panchangam</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-main">
+    <div class="hero-placeholder p1 img-placeholder">🔱</div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="category-pill">పురాణాలు • Puranas</span>
+      <h1 class="hero-title">
+        <span class="hero-title-te">శ్రీ రాముని అవతార రహస్యం</span>
+        The Divine Mystery of Rama's Incarnation
+      </h1>
+      <p class="hero-excerpt">Why did Vishnu choose to be born as a human? The deeper spiritual meaning behind the Ramayana that most people never discover...</p>
+      <span class="read-more">Read Full Story</span>
+    </div>
+  </div>
+
+  <div class="hero-sidebar">
+    <div class="side-card">
+      <div class="side-placeholder p2">🪐</div>
+      <div class="side-content">
+        <div class="side-category">జ్యోతిష్యం • Astrology</div>
+        <div class="side-title">శని మహాదశ — ఏమి చేయాలి?
+          <span class="side-title-te">Saturn Mahadasha Guide</span>
+        </div>
+        <div class="side-meta">3 days ago • 8 min read</div>
+      </div>
+    </div>
+    <div class="side-card">
+      <div class="side-placeholder p3">🛕</div>
+      <div class="side-content">
+        <div class="side-category">దేవాలయాలు • Temples</div>
+        <div class="side-title">తిరుమల సప్తగిరుల రహస్యం
+          <span class="side-title-te">Secrets of Tirumala Hills</span>
+        </div>
+        <div class="side-meta">5 days ago • 6 min read</div>
+      </div>
+    </div>
+    <div class="side-card">
+      <div class="side-placeholder p4">🌺</div>
+      <div class="side-content">
+        <div class="side-category">ఉత్సవాలు • Festivals</div>
+        <div class="side-title">ఉగాది పచ్చడి — ఆరు రుచులు, ఒక తత్వం
+          <span class="side-title-te">Ugadi: Six Tastes, One Truth</span>
+        </div>
+        <div class="side-meta">1 week ago • 5 min read</div>
+      </div>
+    </div>
+    <div class="side-card">
+      <div class="side-placeholder p5">✨</div>
+      <div class="side-content">
+        <div class="side-category">ఆధ్యాత్మికం • Spiritual</div>
+        <div class="side-title">నిద్రపోయే ముందు చేయవలసిన స్తోత్రాలు
+          <span class="side-title-te">Night Prayers for Peace</span>
+        </div>
+        <div class="side-meta">2 weeks ago • 4 min read</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FESTIVAL COUNTDOWN -->
+<div class="festival-strip">
+  <div class="festival-banner">
+    <div class="festival-text">
+      <div class="festival-label">🎉 రాబోయే పండుగ • Upcoming Festival</div>
+      <div class="festival-name">శ్రీ రామ నవమి</div>
+      <div class="festival-name-en">Sri Rama Navami • April 6, 2026</div>
+    </div>
+    <div class="festival-countdown">
+      <div class="countdown-box">
+        <div class="countdown-num">06</div>
+        <div class="countdown-label">Days</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-num">14</div>
+        <div class="countdown-label">Hours</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-num">32</div>
+        <div class="countdown-label">Mins</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STORIES SECTION -->
+<div class="section-divider">
+  <h2 class="section-title">📖 Divine Stories <span class="section-title-te">దివ్య కథలు</span></h2>
+  <div class="divider-line"></div>
+  <span class="section-more">View All →</span>
+</div>
+
+<div class="main-grid">
+  <div class="article-card">
+    <div class="card-img-wrap">
+      <div class="card-placeholder p2 img-placeholder">🕉️</div>
+      <div class="card-overlay-pill">పురాణాలు</div>
+    </div>
+    <div class="card-title">గజేంద్ర మోక్షం — ఏనుగు ముక్తి కథ
+      <span class="card-title-te">Gajendra Moksha — The Elephant's Liberation</span>
+    </div>
+    <p class="card-excerpt">A king cursed into an elephant form, dragged into a lake by a crocodile — and why Vishnu himself ran barefoot to rescue him.</p>
+    <div class="card-meta">
+      <span>Astrology</span><div class="dot"></div>
+      <span>8 min read</span><div class="dot"></div>
+      <span>2 days ago</span>
+    </div>
+  </div>
+
+  <div class="article-card">
+    <div class="card-img-wrap">
+      <div class="card-placeholder p7 img-placeholder">🌙</div>
+      <div class="card-overlay-pill">శివ తత్వం</div>
+    </div>
+    <div class="card-title">శివుడు నీలకంఠుడు అయిన వైనం
+      <span class="card-title-te">Why Shiva Has a Blue Throat</span>
+    </div>
+    <p class="card-excerpt">The story of Samudra Manthan and the poison that could have destroyed the universe — and the god who swallowed it all.</p>
+    <div class="card-meta">
+      <span>Devotional</span><div class="dot"></div>
+      <span>6 min read</span><div class="dot"></div>
+      <span>4 days ago</span>
+    </div>
+  </div>
+
+  <div class="article-card">
+    <div class="card-img-wrap">
+      <div class="card-placeholder p3 img-placeholder">🌿</div>
+      <div class="card-overlay-pill">భాగవతం</div>
+    </div>
+    <div class="card-title">ధ్రువుని తపస్సు — చిన్నారి భక్తుని కథ
+      <span class="card-title-te">Dhruva's Penance — The Little Devotee</span>
+    </div>
+    <p class="card-excerpt">A five-year-old boy's determination to see God, and how his unwavering devotion moved the entire cosmos.</p>
+    <div class="card-meta">
+      <span>Bhagavatam</span><div class="dot"></div>
+      <span>7 min read</span><div class="dot"></div>
+      <span>1 week ago</span>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <!-- Panchangam Widget -->
+    <div class="sidebar-widget">
+      <div class="widget-header">
+        <span>🔯</span>
+        <span class="widget-title">నేటి పంచాంగం</span>
+      </div>
+      <div class="widget-body">
+        <div class="panchangam-grid">
+          <div class="panchanga-item">
+            <div class="panchanga-label">తిథి</div>
+            <div class="panchanga-value">తృతీయ</div>
+            <div class="panchanga-te">Tritiya</div>
+          </div>
+          <div class="panchanga-item">
+            <div class="panchanga-label">వారం</div>
+            <div class="panchanga-value">మంగళ</div>
+            <div class="panchanga-te">Tuesday</div>
+          </div>
+          <div class="panchanga-item">
+            <div class="panchanga-label">నక్షత్రం</div>
+            <div class="panchanga-value">రోహిణి</div>
+            <div class="panchanga-te">Rohini</div>
+          </div>
+          <div class="panchanga-item">
+            <div class="panchanga-label">యోగం</div>
+            <div class="panchanga-value">సిద్ధి</div>
+            <div class="panchanga-te">Siddhi</div>
+          </div>
+          <div class="panchanga-item">
+            <div class="panchanga-label">రాహుకాలం</div>
+            <div class="panchanga-value">3–4:30 PM</div>
+            <div class="panchanga-te">Avoid</div>
+          </div>
+          <div class="panchanga-item">
+            <div class="panchanga-label">శుభముహూర్తం</div>
+            <div class="panchanga-value">9–10 AM</div>
+            <div class="panchanga-te">Auspicious</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rashi Widget -->
+    <div class="sidebar-widget">
+      <div class="widget-header">
+        <span>⭐</span>
+        <span class="widget-title">రాశి ఫలాలు</span>
+      </div>
+      <div class="widget-body">
+        <div class="rashi-grid">
+          <div class="rashi-item"><span class="rashi-symbol">♈</span><div class="rashi-name">Aries</div><div class="rashi-name-te">మేషం</div></div>
+          <div class="rashi-item"><span class="rashi-symbol">♉</span><div class="rashi-name">Taurus</div><div class="rashi-name-te">వృషభం</div></div>
+          <div class="rashi-item"><span class="rashi-symbol">♊</span><div class="rashi-name">Gemini</div><div class="rashi-name-te">మిధునం</div></div>
+          <div class="rashi-item"><span class="rashi-symbol">♋</span><div class="rashi-name">Cancer</div><div class="rashi-name-te">కర్కాటకం</div></div>
+          <div class="rashi-item"><span class="rashi-symbol">♌</span><div class="rashi-name">Leo</div><div class="rashi-name-te">సింహం</div></div>
+          <div class="rashi-item"><span class="rashi-symbol">♍</span><div class="rashi-name">Virgo</div><div class="rashi-name-te">కన్య</div></div>
+          <div class="rashi-item"><span class="rashi-symbol">♎</span><div class="rashi-name">Libra</div><div class="rashi-name-te">తుల</div></div>
+          <div class="rashi-item"><span class="rashi-symbol">♏</span><div class="rashi-name">Scorpio</div><div class="rashi-name-te">వృశ్చికం</div></div>
+          <div class="rashi-item"><span class="rashi-symbol">♐</span><div class="rashi-name">Sagittarius</div><div class="rashi-name-te">ధనుస్సు</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="sidebar-widget newsletter-widget">
+      <div class="widget-header">
+        <span>📨</span>
+        <span class="widget-title">రోజువారీ అప్‌డేట్</span>
+      </div>
+      <div class="newsletter-body">
+        <p class="newsletter-text">రోజువారీ పంచాంగం, రాశి ఫలాలు మీ inbox కి పొందండి</p>
+        <input class="newsletter-input" type="email" placeholder="మీ email చిరునామా...">
+        <button class="newsletter-btn">చందా అవ్వండి 🙏</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWS SECTION -->
+<div class="section-divider">
+  <h2 class="section-title">📰 Spiritual News <span class="section-title-te">దైవ వార్తలు</span></h2>
+  <div class="divider-line"></div>
+  <span class="section-more">View All →</span>
+</div>
+
+<div class="news-section">
+  <div class="news-grid">
+    <div class="news-card">
+      <div class="news-placeholder p1 img-placeholder">🛕</div>
+      <div class="news-body">
+        <div class="news-tag">తిరుపతి • TTD</div>
+        <div class="news-title">తిరుమల బ్రహ్మోత్సవాలు ప్రారంభం
+          <div class="news-title-te">Tirupati Brahmotsavams Begin</div>
+        </div>
+        <div class="news-time">🕐 2 hours ago</div>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-placeholder p6 img-placeholder">🌑</div>
+      <div class="news-body">
+        <div class="news-tag">గ్రహణం • Eclipse</div>
+        <div class="news-title">ఏప్రిల్ 8న సూర్యగ్రహణం — ఏమి చేయాలి?
+          <div class="news-title-te">Solar Eclipse April 8 — Do's & Don'ts</div>
+        </div>
+        <div class="news-time">🕐 5 hours ago</div>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-placeholder p3 img-placeholder">🌊</div>
+      <div class="news-body">
+        <div class="news-tag">పుష్కరాలు • Pushkarams</div>
+        <div class="news-title">గోదావరి పుష్కరాల తేదీలు ప్రకటన
+          <div class="news-title-te">Godavari Pushkaram Dates Announced</div>
+        </div>
+        <div class="news-time">🕐 1 day ago</div>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-placeholder p8 img-placeholder">🔔</div>
+      <div class="news-body">
+        <div class="news-tag">యాత్ర • Yatra</div>
+        <div class="news-title">శ్రీశైలం కుంభాభిషేకం వేడుకలు
+          <div class="news-title-te">Srisailam Kumbhabhishekam Celebrations</div>
+        </div>
+        <div class="news-time">🕐 2 days ago</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo-block">
+        <div class="footer-logo">రసవాణి</div>
+        <p class="footer-tagline">తెలుగు దైవ పత్రిక<br>Telugu Divine Magazine<br><br>Bringing ancient wisdom to the modern Telugu soul.</p>
+      </div>
+      <div>
+        <div class="footer-section-title">కథలు • Stories</div>
+        <ul class="footer-links">
+          <li>పురాణ కథలు</li>
+          <li>భాగవత కథలు</li>
+          <li>రామాయణం</li>
+          <li>మహాభారతం</li>
+          <li>స్తోత్రాలు</li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-section-title">జ్యోతిష్యం • Astrology</div>
+        <ul class="footer-links">
+          <li>రోజువారీ పంచాంగం</li>
+          <li>రాశి ఫలాలు</li>
+          <li>జన్మ కుండలి</li>
+          <li>గ్రహ స్థితులు</li>
+          <li>ముహూర్తాలు</li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-section-title">మా యాప్ • Our App</div>
+        <ul class="footer-links">
+          <li>📱 Rasavani App</li>
+          <li>🤖 AI జ్యోతిష్యుడు</li>
+          <li>🔯 జన్మ కుండలి</li>
+          <li>📅 పంచాంగం App</li>
+          <li>⭐ Play Store లో Download</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 రసవాణి • Rasavani.in • All Rights Reserved • Made with 🙏 in Andhra Pradesh</div>
+      <div class="footer-om">ॐ</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
