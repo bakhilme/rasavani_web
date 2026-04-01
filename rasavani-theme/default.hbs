@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}" class="{{body_class}}">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{meta_title}}</title>
+    <link rel="canonical" href="{{canonical_url}}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Vesper+Libre:wght@400;700;900&family=Mukta:wght@300;400;600;700&family=Yatra+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset "css/style.css"}}" />
+
+    {{ghost_head}}
+</head>
+<body class="kolam-bg {{body_class}}">
+
+    {{> "top-bar"}}
+    {{> "site-header"}}
+    {{> "site-nav"}}
+
+    <main id="main-content" class="site-main">
+        {{{body}}}
+    </main>
+
+    {{> "site-footer"}}
+
+    <script src="{{asset "js/main.js"}}"></script>
+    {{ghost_foot}}
+</body>
+</html>

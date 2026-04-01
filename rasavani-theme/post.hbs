@@ -1,0 +1,61 @@
+{{!< default}}
+
+{{#post}}
+<article class="post-full {{post_class}}">
+    <header class="post-full-header container">
+        {{#primary_tag}}<a href="{{url}}" class="post-full-tag">{{name}}</a>{{/primary_tag}}
+        <h1 class="post-full-title">{{title}}</h1>
+        {{#if custom_excerpt}}
+            <p class="post-full-excerpt">{{custom_excerpt}}</p>
+        {{/if}}
+        <div class="post-full-meta">
+            {{#foreach authors}}
+                <span class="post-full-author">{{name}}</span>
+            {{/foreach}}
+            <span class="post-full-meta-dot" aria-hidden="true">•</span>
+            <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="DD MMM YYYY"}}</time>
+            <span class="post-full-meta-dot" aria-hidden="true">•</span>
+            <span>{{reading_time}}</span>
+        </div>
+    </header>
+
+    {{#if feature_image}}
+        <figure class="post-full-image container">
+            <img src="{{img_url feature_image size="xl"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
+            {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
+        </figure>
+    {{/if}}
+
+    <section class="post-full-content-wrap container">
+        <div class="post-full-content gh-content">{{content}}</div>
+
+        <aside class="post-sidebar sidebar-widget">
+            <div class="widget-header"><span>🧭</span><h3 class="widget-title">మరిన్ని వ్యాసాలు</h3></div>
+            <div class="widget-body">
+                <ul class="widget-recent" role="list">
+                    {{#get "posts" filter="id:-{{id}}" limit="5"}}
+                        {{#foreach posts}}
+                            <li>
+                                <a href="{{url}}">{{title}}</a>
+                            </li>
+                        {{/foreach}}
+                    {{/get}}
+                </ul>
+            </div>
+        </aside>
+    </section>
+
+    {{#get "posts" limit="3" filter="id:-{{id}}+tag:{{primary_tag.slug}}"}}
+        {{#if posts}}
+            <section class="related-posts container">
+                <h2 class="related-posts-title">మరిన్ని చదవండి</h2>
+                <div class="related-posts-grid">
+                    {{#foreach posts}}
+                        {{> "post-card"}}
+                    {{/foreach}}
+                </div>
+            </section>
+        {{/if}}
+    {{/get}}
+</article>
+{{/post}}

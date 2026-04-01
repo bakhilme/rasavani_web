@@ -1,0 +1,19 @@
+<article class="article-card {{post_class}}">
+    <a href="{{url}}" aria-label="{{title}}">
+        <div class="card-img-wrap">
+            {{#if feature_image}}
+                <img class="card-img" src="{{img_url feature_image size="m"}}" alt="{{title}}" loading="lazy" />
+            {{else}}
+                <div class="card-placeholder p3 img-placeholder">🕉️</div>
+            {{/if}}
+            {{#primary_tag}}<span class="card-overlay-pill">{{name}}</span>{{/primary_tag}}
+        </div>
+        <h3 class="card-title">{{title}}</h3>
+        <p class="card-excerpt">{{excerpt words="22"}}</p>
+        <div class="card-meta">
+            <span>{{reading_time}}</span>
+            <span class="dot"></span>
+            <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="DD MMM YYYY"}}</time>
+        </div>
+    </a>
+</article>

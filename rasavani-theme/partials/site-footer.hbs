@@ -1,0 +1,31 @@
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-top">
+            <section class="footer-logo-block">
+                <h2 class="footer-logo">{{@site.title}}</h2>
+                <p class="footer-tagline">తెలుగు దైవ పత్రిక<br />Bringing ancient wisdom to modern readers.</p>
+            </section>
+
+            <section>
+                <h3 class="footer-section-title">Explore</h3>
+                {{navigation type="secondary"}}
+            </section>
+
+            <section>
+                <h3 class="footer-section-title">Latest</h3>
+                <ul class="footer-links" role="list">
+                    {{#get "posts" limit="4"}}
+                        {{#foreach posts}}
+                            <li><a href="{{url}}">{{title}}</a></li>
+                        {{/foreach}}
+                    {{/get}}
+                </ul>
+            </section>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copy">© {{date format="YYYY"}} {{@site.title}}. All rights reserved.</p>
+            <div class="footer-om" aria-hidden="true">ॐ</div>
+        </div>
+    </div>
+</footer>

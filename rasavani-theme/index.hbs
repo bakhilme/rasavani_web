@@ -1,0 +1,143 @@
+{{!< default}}
+
+<section class="hero">
+    {{#foreach posts limit="1"}}
+        <article class="hero-main {{post_class}}">
+            <a href="{{url}}" class="hero-main-link" aria-label="{{title}}">
+                {{#if feature_image}}
+                    <img class="hero-img" src="{{img_url feature_image size="xl"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
+                {{else}}
+                    <div class="hero-placeholder p1 img-placeholder">🔱</div>
+                {{/if}}
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    {{#primary_tag}}<span class="category-pill">{{name}}</span>{{/primary_tag}}
+                    <h1 class="hero-title">
+                        <span class="hero-title-te">శీర్షిక</span>
+                        {{title}}
+                    </h1>
+                    <p class="hero-excerpt">{{excerpt words="28"}}</p>
+                    <span class="read-more">Read Full Story</span>
+                </div>
+            </a>
+        </article>
+    {{/foreach}}
+
+    <aside class="hero-sidebar">
+        {{#foreach posts from="2" to="5"}}
+            <article class="side-card {{post_class}}">
+                <a href="{{url}}" class="side-card-link" aria-label="{{title}}">
+                    {{#if feature_image}}
+                        <img class="side-img" src="{{img_url feature_image size="s"}}" alt="{{title}}" />
+                    {{else}}
+                        <div class="side-placeholder p2">🪐</div>
+                    {{/if}}
+                    <div class="side-content">
+                        {{#primary_tag}}<div class="side-category">{{name}}</div>{{/primary_tag}}
+                        <h2 class="side-title">{{title}}<span class="side-title-te">{{reading_time}}</span></h2>
+                        <div class="side-meta">{{date published_at timeago="true"}} ago</div>
+                    </div>
+                </a>
+            </article>
+        {{/foreach}}
+    </aside>
+</section>
+
+<section class="festival-strip" aria-label="Upcoming festival">
+    <div class="festival-banner">
+        <div class="festival-text">
+            <div class="festival-label">Upcoming Festival</div>
+            <div class="festival-name">శ్రీ రామ నవమి</div>
+            <div class="festival-name-en">Sri Rama Navami</div>
+        </div>
+        <div class="festival-countdown">
+            <div class="countdown-box"><div class="countdown-num">06</div><div class="countdown-label">Days</div></div>
+            <div class="countdown-box"><div class="countdown-num">14</div><div class="countdown-label">Hours</div></div>
+            <div class="countdown-box"><div class="countdown-num">32</div><div class="countdown-label">Mins</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-divider">
+    <h2 class="section-title">Divine Stories <span class="section-title-te">దివ్య కథలు</span></h2>
+    <div class="divider-line"></div>
+    <a href="{{@site.url}}/" class="section-more">View All</a>
+</section>
+
+<section class="main-grid">
+    <div class="story-grid">
+        {{#foreach posts from="6"}}
+            {{> "post-card"}}
+        {{/foreach}}
+    </div>
+
+    <aside class="sidebar">
+        <section class="sidebar-widget">
+            <div class="widget-header"><span>🔯</span><h3 class="widget-title">నేటి పంచాంగం</h3></div>
+            <div class="widget-body panchangam-grid">
+                <div class="panchanga-item"><div class="panchanga-label">తిథి</div><div class="panchanga-value">తృతీయ</div><div class="panchanga-te">Tritiya</div></div>
+                <div class="panchanga-item"><div class="panchanga-label">వారం</div><div class="panchanga-value">మంగళ</div><div class="panchanga-te">Tuesday</div></div>
+                <div class="panchanga-item"><div class="panchanga-label">నక్షత్రం</div><div class="panchanga-value">రోహిణి</div><div class="panchanga-te">Rohini</div></div>
+                <div class="panchanga-item"><div class="panchanga-label">యోగం</div><div class="panchanga-value">సిద్ధి</div><div class="panchanga-te">Siddhi</div></div>
+            </div>
+        </section>
+
+        <section class="sidebar-widget">
+            <div class="widget-header"><span>🏷️</span><h3 class="widget-title">విభాగాలు</h3></div>
+            <div class="widget-body">
+                <ul class="widget-tags" role="list">
+                    {{#get "tags" limit="8" include="count.posts"}}
+                        {{#foreach tags}}
+                            <li><a href="{{url}}">{{name}} <span class="tag-count">{{count.posts}}</span></a></li>
+                        {{/foreach}}
+                    {{/get}}
+                </ul>
+            </div>
+        </section>
+
+        <section class="sidebar-widget newsletter-widget">
+            <div class="widget-header"><span>📨</span><h3 class="widget-title">రోజువారీ అప్‌డేట్</h3></div>
+            <div class="newsletter-body">
+                <p class="newsletter-text">రోజువారీ పంచాంగం, రాశి ఫలాలు మీ inbox కి పొందండి</p>
+                {{#if @member}}
+                    <p class="widget-subscribed">మీరు ఇప్పటికే సభ్యులు.</p>
+                {{else}}
+                    <form data-members-form="subscribe" class="subscribe-form">
+                        <input class="newsletter-input" type="email" data-members-email placeholder="మీ email చిరునామా..." required />
+                        <button class="newsletter-btn" type="submit">చందా అవ్వండి</button>
+                    </form>
+                {{/if}}
+            </div>
+        </section>
+    </aside>
+</section>
+
+<section class="section-divider">
+    <h2 class="section-title">Spiritual News <span class="section-title-te">దైవ వార్తలు</span></h2>
+    <div class="divider-line"></div>
+</section>
+
+<section class="news-section">
+    <div class="news-grid">
+        {{#get "posts" limit="4"}}
+            {{#foreach posts}}
+                <article class="news-card {{post_class}}">
+                    <a href="{{url}}" aria-label="{{title}}">
+                        {{#if feature_image}}
+                                <img class="news-img" src="{{img_url feature_image size="m"}}" alt="{{title}}" />
+                        {{else}}
+                            <div class="news-placeholder p6 img-placeholder">📰</div>
+                        {{/if}}
+                        <div class="news-body">
+                            {{#primary_tag}}<div class="news-tag">{{name}}</div>{{/primary_tag}}
+                            <h3 class="news-title">{{title}}</h3>
+                            <div class="news-time">{{date published_at timeago="true"}} ago</div>
+                        </div>
+                    </a>
+                </article>
+            {{/foreach}}
+        {{/get}}
+    </div>
+</section>
+
+{{pagination}}
