@@ -1,0 +1,23 @@
+{{!< default}}
+
+{{#page}}
+<article class="page-full {{page_class}}">
+
+  <header class="page-full-header">
+    <h1 class="page-full-title">{{title}}</h1>
+  </header>
+
+  {{#if feature_image}}
+    <figure class="post-full-image">
+      <img src="{{img_url feature_image size="l"}}" alt="{{title}}" />
+    </figure>
+  {{/if}}
+
+  <div class="page-full-body">
+    <section class="gh-content">
+      {{content}}
+    </section>
+  </div>
+
+</article>
+{{/page}}

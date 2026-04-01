@@ -1,0 +1,16 @@
+{{!< default}}
+
+<div class="error-wrap">
+  <div class="error-inner">
+    <h1 class="error-code">{{statusCode}}</h1>
+    <p class="error-message">
+      {{#if statusCode}}
+        {{#is "404"}}పేజీ దొరకలేదు — Page not found{{/is}}
+        {{#is "500"}}సర్వర్ లోపం జరిగింది — Server error{{/is}}
+      {{else}}
+        ఏదో తప్పు జరిగింది — Something went wrong
+      {{/if}}
+    </p>
+    <a href="{{@site.url}}" class="error-home-btn">🏠 Home కి తిరిగి వెళ్ళండి</a>
+  </div>
+</div>

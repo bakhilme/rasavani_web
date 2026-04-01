@@ -1,0 +1,24 @@
+{{!< default}}
+
+{{#tag}}
+<div class="tag-archive-wrap">
+  <header class="tag-archive-header">
+    {{#if feature_image}}
+      <img class="tag-archive-cover" src="{{img_url feature_image size="l"}}" alt="{{name}}" />
+    {{/if}}
+    <h1 class="tag-archive-title">{{name}}</h1>
+    {{#if description}}<p class="tag-archive-desc">{{description}}</p>{{/if}}
+    <p class="tag-archive-count">{{plural ../pagination.total empty="వ్యాసాలు లేవు" singular="% వ్యాసం" plural="% వ్యాసాలు"}}</p>
+  </header>
+
+  <div class="tag-archive-body">
+    <div class="posts-list">
+      {{#foreach posts}}
+        {{> "post-card"}}
+      {{/foreach}}
+    </div>
+  </div>
+
+  {{pagination}}
+</div>
+{{/tag}}

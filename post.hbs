@@ -1,0 +1,89 @@
+{{!< default}}
+
+{{#post}}
+<article class="post-full {{post_class}}">
+
+  <header class="post-full-header">
+    {{#primary_tag}}<a href="{{url}}" class="post-full-tag">{{name}}</a>{{/primary_tag}}
+    <h1 class="post-full-title">{{title}}</h1>
+    {{#if custom_excerpt}}
+      <p class="post-full-excerpt">{{custom_excerpt}}</p>
+    {{/if}}
+    <div class="post-full-meta">
+      {{#foreach authors}}
+        <span class="post-full-author">{{name}}</span>
+      {{/foreach}}
+      <span class="post-full-meta-dot" aria-hidden="true">·</span>
+      <time class="post-full-date" datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="DD MMM YYYY"}}</time>
+      <span class="post-full-meta-dot" aria-hidden="true">·</span>
+      <span class="post-full-read">{{reading_time}}</span>
+    </div>
+  </header>
+
+  {{#if feature_image}}
+    <figure class="post-full-image">
+      <img
+        src="{{img_url feature_image size="l"}}"
+        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+      />
+      {{#if feature_image_caption}}
+        <figcaption>{{feature_image_caption}}</figcaption>
+      {{/if}}
+    </figure>
+  {{/if}}
+
+  <div class="post-full-body">
+    <section class="post-full-content gh-content">
+      {{content}}
+    </section>
+
+    <aside class="post-full-sidebar">
+      {{! Tags }}
+      {{#if tags}}
+        <div class="sidebar-widget">
+          <h3 class="widget-title">విభాగాలు</h3>
+          <div class="post-tags">
+            {{#foreach tags}}
+              <a href="{{url}}" class="post-tag">{{name}}</a>
+            {{/foreach}}
+          </div>
+        </div>
+      {{/if}}
+
+      {{! Recent posts }}
+      <div class="sidebar-widget">
+        <h3 class="widget-title">తాజా వ్యాసాలు</h3>
+        <ul class="widget-recent" role="list">
+          {{#get "posts" limit="5" filter="id:-{{id}}"}}
+            {{#foreach posts}}
+              <li class="widget-recent-item">
+                <a href="{{url}}" class="widget-recent-link">
+                  {{#if feature_image}}
+                    <img class="widget-recent-img" src="{{img_url feature_image size="xs"}}" alt="{{title}}" loading="lazy" />
+                  {{/if}}
+                  <span class="widget-recent-title">{{title}}</span>
+                </a>
+              </li>
+            {{/foreach}}
+          {{/get}}
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  {{! Related posts }}
+  {{#get "posts" limit="3" filter="tags:[{{primary_tag.slug}}]+id:-{{id}}"}}
+    {{#if posts}}
+      <section class="related-posts">
+        <h2 class="related-posts-title">మరిన్ని చదవండి</h2>
+        <div class="related-posts-grid">
+          {{#foreach posts}}
+            {{> "post-card"}}
+          {{/foreach}}
+        </div>
+      </section>
+    {{/if}}
+  {{/get}}
+
+</article>
+{{/post}}
